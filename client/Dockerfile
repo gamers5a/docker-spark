@@ -20,14 +20,10 @@ ENV PYSPARK_DRIVER_PYTHON_OPTS 'notebook'
 RUN conda install -c conda-forge pyspark findspark -y
 RUN conda install jupyter -y
 
-ADD ./extension/ /extension/
-ADD ./notebooks/ /notebooks/
-
-RUN pip install -e /extension/ && \
-jupyter nbextension install sparkmonitor --py --user --symlink && \
-jupyter nbextension enable sparkmonitor --py --user && \
-jupyter serverextension enable --py --user sparkmonitor && \
-ipython profile create && \
-echo "c.InteractiveShellApp.extensions.append('sparkmonitor.kernelextension')" >>  $(ipython profile locate default)/ipython_kernel_config.py
+pip install jupyter-spark
+jupyter serverextension enable --py jupyter_spark
+jupyter nbextension install --py jupyter_spark
+jupyter nbextension enable --py jupyter_spark
+jupyter nbextension enable --py widgetsnbextension
 
 CMD ["/bin/bash", "/master.sh"]
