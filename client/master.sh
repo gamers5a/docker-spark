@@ -12,6 +12,8 @@ export SPARK_HOME=/spark
 
 ln -sf /dev/stdout $SPARK_MASTER_LOG/spark-master.out
 
+pip3 install -U setuptools
+
 pip3 install --upgrade setuptools pip
 
 pip3 install jupyter && jupyter notebook
