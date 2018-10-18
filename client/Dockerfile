@@ -1,4 +1,4 @@
-FROM docker-spark/base
+FROM spark_base
 
 MAINTAINER Erika Pauwels <erika.pauwels@tenforce.com>
 MAINTAINER Gezim Sejdiu <g.sejdiu@gmail.com>
