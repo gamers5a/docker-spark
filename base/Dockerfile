@@ -29,7 +29,7 @@ RUN apt-get-install -y curl \
       #&& jar uf /spark/jars/spark-core_2.11-${SPARK_VERSION}.jar org/apache/spark/ui/static/timeline-view.css \
       && cd /
 
-RUN apt-get-install -y python3 python3-setuptools python3-pip
+RUN apt-get-install -y python3 python3-setuptools python3-pip python3-dev
 
 #Give permission to execute scripts
 RUN chmod +x /wait-for-step.sh && chmod +x /execute-step.sh && chmod +x /finish-step.sh
