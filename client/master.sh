@@ -13,4 +13,4 @@ export SPARK_HOME=/spark
 ln -sf /dev/stdout $SPARK_MASTER_LOG/spark-master.out
 
 
- jupyter notebook
+/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser
