@@ -20,6 +20,9 @@ ENV PYSPARK_DRIVER_PYTHON_OPTS 'notebook'
 RUN conda install -c conda-forge pyspark findspark -y
 RUN conda install jupyter -y
 
+ADD ./extension/ /extension/
+ADD ./notebooks/ /notebooks/
+
 RUN pip install -e /extension/ && \
 jupyter nbextension install sparkmonitor --py --user --symlink && \
 jupyter nbextension enable sparkmonitor --py --user && \
