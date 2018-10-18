@@ -12,9 +12,10 @@ ENV SPARK_MASTER_LOG /spark/logs
 EXPOSE 8080 7077 6066 8888
 
 
-ENV ANACONDA_ROOT ~/anaconda3
-ENV PYSPARK_DRIVER_PYTHON $ANACONDA_ROOT/bin/ipython
+ENV ANACONDA_ROOT /opt/conda/
+ENV PYSPARK_DRIVER_PYTHON $ANACONDA_ROOT/bin/jupyter
 ENV PYSPARK_PYTHON $ANACONDA_ROOT/bin/python
+ENV PYSPARK_DRIVER_PYTHON_OPTS 'notebook'
 
 RUN conda install -c conda-forge pyspark findspark -y
 RUN conda install jupyter -y
