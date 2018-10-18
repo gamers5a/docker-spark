@@ -20,10 +20,10 @@ ENV PYSPARK_DRIVER_PYTHON_OPTS 'notebook'
 RUN conda install -c conda-forge pyspark findspark -y
 RUN conda install jupyter -y
 
-RUN pip install jupyter-spark
-jupyter serverextension enable --py jupyter_spark
-jupyter nbextension install --py jupyter_spark
-jupyter nbextension enable --py jupyter_spark
+RUN pip install jupyter-spark && \
+jupyter serverextension enable --py jupyter_spark && \
+jupyter nbextension install --py jupyter_spark && \
+jupyter nbextension enable --py jupyter_spark && \
 jupyter nbextension enable --py widgetsnbextension
 
 CMD ["/bin/bash", "/master.sh"]
