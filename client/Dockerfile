@@ -20,7 +20,7 @@ ENV PYSPARK_DRIVER_PYTHON_OPTS 'notebook'
 RUN conda install -c conda-forge pyspark findspark -y
 RUN conda install jupyter -y
 
-RUN pip install jupyter-spark && \
+RUN pip install jupyter-spark lxml && \
 jupyter serverextension enable --py jupyter_spark && \
 jupyter nbextension install --py jupyter_spark && \
 jupyter nbextension enable --py jupyter_spark && \
